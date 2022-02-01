@@ -1,0 +1,26 @@
+import PySimpleGUI as sg
+
+sg.theme('LightBlue 1')
+layout = [[sg.Text('You: '), sg.Text(size=(50,1), key='-mytext-')],
+          [sg.Text('Csigusz Foxoup (bot): '), sg.Text(size=(50,1), key='-CSI-')],
+          [sg.Input(key='-myinput-')],
+          [sg.Button('Send message'), sg.Button('Bye!')]]
+
+window = sg.Window('Csigusz Foxoup, your friend in a box (bot)', layout, [200,400])
+
+while True:
+    event, values = window.read()
+    print('event:', event)
+    print('values:', values)
+    
+    if event == sg.WIN_CLOSED or event == 'Bye!':
+        break
+        
+    if event == 'Send message':
+        input_text = values['-myinput-']
+        response = "some response for " + input_text
+        #response = kernel.respond(input_text)
+        window['-mytext-'].update(input_text)
+        window['-CSI-'].update(response)
+
+window.close()

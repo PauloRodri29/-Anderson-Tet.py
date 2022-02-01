@@ -1,0 +1,17 @@
+from PySimpleGUI import PySimpleGUI as sg
+def main():
+    layout = [ [sg.Text('Digite o comando que deseja executar')],
+                [sg.Input(key='_IN_')],
+                [sg.Saída(tamanho=(60,15))],
+                [sg.Button('Run'), sg.Button('Exit')] ]
+
+    window = sg.Window('Realtime Shell Command Output', layout)
+
+    while True: # Loop de Eventos
+        evento, valores = janela.Read()
+        # print(evento, valores)
+        if event in (Nenhum, 'Exit'):
+            pausa
+        evento elif == 'Executar':
+            runCommand(cmd=valores['_IN_'], janela=janela)
+    janela.Fechar()
